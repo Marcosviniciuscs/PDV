@@ -12,7 +12,7 @@ package pdv;
 import javax.swing.*;
 import java.util.ArrayList;
 public class CadastroProduto {
-    public ArrayList<Produto> lista_produto;
+    private ArrayList<Produto> lista_produto;
 
     public CadastroProduto(){
         lista_produto = new ArrayList<>();
@@ -21,6 +21,8 @@ public class CadastroProduto {
         lista_produto.add(novo);
         Produto novo1 = new Produto("002", "feijão", "150", "8.00", "50","22/11/23");
         lista_produto.add(novo1);
+        Produto novo2 = new Produto("003", "leite", "200", "5.00", "100","22/11/23");
+        lista_produto.add(novo2);
         
     }
 

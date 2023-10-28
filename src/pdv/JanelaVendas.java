@@ -111,6 +111,7 @@ public class JanelaVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        double somador = 0;
         String valor = codigo_do_produto.getText();
         Produto resultado = cadastro.consulta(valor);
         if (resultado == null){
@@ -118,8 +119,12 @@ public class JanelaVendas extends javax.swing.JFrame {
         }
         else{
             DefaultTableModel val = (DefaultTableModel) tabela_vendas.getModel();
-            val.addRow(new String[]{resultado.obterUnidade(),resultado.obterNome(), resultado.obterPreco()});
+            val.addRow(new String[]{"1",resultado.obterNome(), resultado.obterPreco()});
         }
+        Double preco = Double.parseDouble(resultado.obterPreco());
+        somador = somador + preco;
+        System.out.println(somador);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
