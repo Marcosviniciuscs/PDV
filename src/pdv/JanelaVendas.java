@@ -4,6 +4,7 @@
  */
 package pdv;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -74,6 +75,7 @@ public class JanelaVendas extends javax.swing.JFrame {
         jLabel2.setText("Total da compra:");
 
         labtotal.setBackground(new java.awt.Color(255, 255, 255));
+        labtotal.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         labtotal.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,7 +129,6 @@ public class JanelaVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        double somador = 0;
         String valor = codigo_do_produto.getText();
         Produto resultado = cadastro.consulta(valor);
         if (resultado == null){
@@ -137,11 +138,13 @@ public class JanelaVendas extends javax.swing.JFrame {
             DefaultTableModel val = (DefaultTableModel) tabela_vendas.getModel();
             val.addRow(new String[]{"1",resultado.obterNome(), resultado.obterPreco()});
         }
-        Double preco = Double.parseDouble(resultado.obterPreco());
-        somador = somador + preco;
-        System.out.println(somador);
         
-        labtotal.setText(""+somador);
+        Vendas total = new Vendas();
+        
+        Double num = Double.parseDouble(resultado.obterPreco());
+        total.somador(num);
+
+        labtotal.setText(""+total.mostrar_valor());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

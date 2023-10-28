@@ -13,9 +13,9 @@ import javax.swing.*;
 import java.util.ArrayList;
 public class CadastroProduto {
     private ArrayList<Produto> lista_produto;
-
     public CadastroProduto(){
         lista_produto = new ArrayList<>();
+
         
         Produto novo = new Produto("001", "arroz", "1", "20.00", "100","21/11/23");
         lista_produto.add(novo);
@@ -27,11 +27,11 @@ public class CadastroProduto {
         lista_produto.add(novo2);
         Produto novo4 = new Produto("005", "farinha", "1", "3.00", "500","22/11/23");
         lista_produto.add(novo2);
-        Produto novo5 = new Produto("006", "pão", "1", "7.00", "600","22/11/23");
+        Produto novo5 = new Produto("006", "pão", "1", "700", "600","22/11/23");
         lista_produto.add(novo2);
         Produto novo6 = new Produto("007", "macarrão", "1", "6.00", "1000","22/11/23");
         lista_produto.add(novo2);
-        Produto novo7 = new Produto("008", "file de frango", "1", "18.00", "50","22/11/23");
+        Produto novo7 = new Produto("008", "file de frango", "1.00", "18.00", "50","22/11/23");
         lista_produto.add(novo2);
         Produto novo8 = new Produto("009", "batata", "1", "4.00", "1500","22/11/23");
         lista_produto.add(novo2);
@@ -59,4 +59,5 @@ public class CadastroProduto {
         }
         return null;
     }
+    
 }
