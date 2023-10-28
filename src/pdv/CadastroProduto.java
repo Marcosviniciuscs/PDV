@@ -16,29 +16,26 @@ public class CadastroProduto {
 
     public CadastroProduto(){
         lista_produto = new ArrayList<>();
+        
+        Produto novo = new Produto("001", "arroz", "10", "20.00", "100","21/11/23");
+        lista_produto.add(novo);
+        Produto novo1 = new Produto("002", "feijão", "150", "8.00", "50","22/11/23");
+        lista_produto.add(novo1);
+        
     }
 
-    public void inclusao(Produto produto){
-        lista_produto.add(produto);
+    public void inclusao(Produto novo_produto){
+        lista_produto.add(novo_produto);
         JOptionPane.showMessageDialog(null,"Operação realizada com sucesso", "Concluido",JOptionPane.INFORMATION_MESSAGE);
 
     }
-    public void imprimir(){
-        for (Produto p : lista_produto){
-            System.out.println("Codigo: " + p.obtercodigo());
-            System.out.println("Nome: " + p.obterNome());
-            System.out.println("Unidade: " + p.obterUnidade());
-            System.out.println("preco: " + p.obterPreco());
-            System.out.println("Estoque: " + p.quantidade_estoque());
-            System.out.println("Data da ultima venda: " + p.data_ultima_venda());
-        }
-    }
+    
     void alteracao(){
 
     }
-    Produto consulta(String consulta_produto){
+    Produto consulta(String nome_item){
         for(Produto p : lista_produto){
-            if(p.obterNome().equals(consulta_produto) ){
+            if(p.obterNome().equals(nome_item) ){
                 return p;
             }
         }

@@ -31,10 +31,10 @@ public class Produto {
     String obterPreco(){
         return preco;
     }
-    String quantidade_estoque(){
+    String obter_quantidade_estoque(){
         return quantidade_estoque;
     }
-    String data_ultima_venda(){
+    String obter_data_ultima_venda(){
         return data_ultima_venda;
     }
 

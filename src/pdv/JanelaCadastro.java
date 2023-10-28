@@ -193,19 +193,18 @@ public class JanelaCadastro extends javax.swing.JFrame {
 
     private void bucadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bucadastrarActionPerformed
         String cod = input_codigo.getText();
-        String nome = input_nome.getText();
-        String unidade = input_unidade.getText();
-        String preco = input_preco.getText();
+        String nome01 = input_nome.getText();
+        String unidade01 = input_unidade.getText();
+        String preco01 = input_preco.getText();
         String estoque = input_estoque.getText();
         String data = Input_data.getText();
 
-        if (cod.isEmpty() || nome.isEmpty() || unidade.isEmpty() || preco.isEmpty() || estoque.isEmpty() || data.isEmpty()){
+        if (cod.isEmpty() || nome01.isEmpty() || unidade01.isEmpty() || preco01.isEmpty() || estoque.isEmpty() || data.isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
         else {
-            Produto produto = new Produto(cod, nome, unidade, preco, estoque, data);
+            Produto produto = new Produto(cod, nome01, unidade01, preco01, estoque, data);
             cadastro.inclusao(produto);
-            cadastro.imprimir();
         }
     }//GEN-LAST:event_bucadastrarActionPerformed
 

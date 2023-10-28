@@ -47,6 +47,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         buregistro.setText("Registro de vendas");
 
         buvendas.setText("Realizar vendas");
+        buvendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buvendasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,8 +88,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bucadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bucadastrarActionPerformed
-           new OpcoesDoCadastro().setVisible(true);
+        new OpcoesDoCadastro().setVisible(true);
     }//GEN-LAST:event_bucadastrarActionPerformed
+
+    private void buvendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buvendasActionPerformed
+        new JanelaVendas().setVisible(true);
+    }//GEN-LAST:event_buvendasActionPerformed
 
     /**
      * @param args the command line arguments

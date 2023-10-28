@@ -84,6 +84,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Realizar vendas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buvendasActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
