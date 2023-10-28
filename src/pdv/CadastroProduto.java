@@ -35,7 +35,7 @@ public class CadastroProduto {
     }
     Produto consulta(String nome_item){
         for(Produto p : lista_produto){
-            if(p.obterNome().equals(nome_item) ){
+            if(p.obterNome().equals(nome_item) || p.obtercodigo().equals(nome_item)){
                 return p;
             }
         }

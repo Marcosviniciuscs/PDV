@@ -146,7 +146,8 @@ public class JanelaConsulta extends javax.swing.JFrame {
         if (resultado == null){
             System.out.println("Nao encontrado!");
         }
-        else{DefaultTableModel val = (DefaultTableModel) tabela_mostra_consulta.getModel();
+        else{
+            DefaultTableModel val = (DefaultTableModel) tabela_mostra_consulta.getModel();
             val.addRow(new String[]{resultado.obtercodigo(), resultado.obterNome(), resultado.obterUnidade(),resultado.obterPreco(), resultado.obter_quantidade_estoque(),resultado.obter_data_ultima_venda()});
         }
         
