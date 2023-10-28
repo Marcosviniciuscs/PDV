@@ -48,7 +48,7 @@ public class Produto {
         this.nome = nome;
     }
 
-    void alterarUnidade(String Unidade){
+    void alterarUnidade(String unidade){
         this.unidade = unidade;
     }
 

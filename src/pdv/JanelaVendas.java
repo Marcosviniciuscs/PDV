@@ -139,12 +139,11 @@ public class JanelaVendas extends javax.swing.JFrame {
             val.addRow(new String[]{"1",resultado.obterNome(), resultado.obterPreco()});
         }
         
-        Vendas total = new Vendas();
+        Vendas vendas = new Vendas();
         
         Double num = Double.parseDouble(resultado.obterPreco());
-        total.somador(num);
 
-        labtotal.setText(""+total.mostrar_valor());
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

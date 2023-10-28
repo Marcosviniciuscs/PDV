@@ -11,11 +11,14 @@ package pdv;
 import java.util.ArrayList;
 public class Vendas {
     
-    ArrayList lista_vendas;
+    public ArrayList lista_vendas;
     double valorTotal = 0;
     public Vendas(){
         lista_vendas = new ArrayList<>();
     }
+    
+    void adicionar_registro(){}
+    
     void somador(double num){
          valorTotal += num;
     }
