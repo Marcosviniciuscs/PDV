@@ -39,15 +39,10 @@ public  class Vendas {
     
     public static void mostrar_lista(){
         
-        System.out.print("--------------------------------------------------");
-        System.out.print("----------------Nota Fiscal - PDV-----------------");
         System.out.print("Produto    quantidade      preço");
-
-        
         for(Produto p : Vendas.lista_vendas){
             System.out.println( p.obterNome()+ " " + " " +p.obterQuantidade()+" " + " "+ p.obterPreco());
         }
-        System.out.println("-------------------------------------------------");
     }
     
 }
