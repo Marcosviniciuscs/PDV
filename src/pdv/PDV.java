@@ -10,9 +10,6 @@ package pdv;
  */
 public class PDV {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         JanelaPrincipal janela =  new JanelaPrincipal();
         janela.setVisible(true);

@@ -28,8 +28,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        bucadastrar = new javax.swing.JButton();
-        buregistro = new javax.swing.JButton();
+        bucadastro_do_produto = new javax.swing.JButton();
         buvendas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -37,14 +36,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Ponto de vendas");
 
-        bucadastrar.setText("Cadastrar Produto");
-        bucadastrar.addActionListener(new java.awt.event.ActionListener() {
+        bucadastro_do_produto.setText("Cadastro do Produto");
+        bucadastro_do_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bucadastrarActionPerformed(evt);
+                bucadastro_do_produtoActionPerformed(evt);
             }
         });
-
-        buregistro.setText("Registro de vendas");
 
         buvendas.setText("Realizar vendas");
         buvendas.addActionListener(new java.awt.event.ActionListener() {
@@ -58,13 +55,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
+                .addContainerGap(112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(buvendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buregistro, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(bucadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(bucadastro_do_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
                         .addGap(119, 119, 119))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -75,21 +71,19 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(bucadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buregistro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(58, 58, 58)
+                .addComponent(bucadastro_do_produto)
+                .addGap(18, 18, 18)
                 .addComponent(buvendas)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bucadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bucadastrarActionPerformed
-        new OpcoesDoCadastro().setVisible(true);
-    }//GEN-LAST:event_bucadastrarActionPerformed
+    private void bucadastro_do_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bucadastro_do_produtoActionPerformed
+        new GuiCadastroDeProdutos().setVisible(true);
+    }//GEN-LAST:event_bucadastro_do_produtoActionPerformed
 
     private void buvendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buvendasActionPerformed
         new JanelaVendas().setVisible(true);
@@ -125,14 +119,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JanelaPrincipal().setVisible(true);
+                new GuiCadastroDeProdutos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bucadastrar;
-    private javax.swing.JButton buregistro;
+    private javax.swing.JButton bucadastro_do_produto;
     private javax.swing.JButton buvendas;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
