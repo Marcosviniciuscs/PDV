@@ -197,7 +197,9 @@ public class JanelaVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_in_codigo_do_produtoActionPerformed
 
     private void bufinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bufinalizarActionPerformed
-        Vendas.mostrar_lista();
+        FormaDePagamento pagamento = new FormaDePagamento();
+        pagamento.setVisible(true);
+        
     }//GEN-LAST:event_bufinalizarActionPerformed
 
     /**
