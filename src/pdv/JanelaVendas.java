@@ -36,6 +36,7 @@ public class JanelaVendas extends javax.swing.JFrame {
         bufinalizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         labtotal = new javax.swing.JLabel();
+        bunova_venda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,6 +102,13 @@ public class JanelaVendas extends javax.swing.JFrame {
         labtotal.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         labtotal.setForeground(new java.awt.Color(0, 0, 0));
 
+        bunova_venda.setText("Nova venda");
+        bunova_venda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bunova_vendaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,10 +123,11 @@ public class JanelaVendas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(in_codigo_do_produto))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(buinserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buexcluir, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+                            .addComponent(buexcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bunova_venda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(22, 22, 22))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -140,7 +149,10 @@ public class JanelaVendas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(bunova_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
@@ -202,6 +214,14 @@ public class JanelaVendas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bufinalizarActionPerformed
 
+    private void bunova_vendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bunova_vendaActionPerformed
+        DefaultTableModel tbprodutos = (DefaultTableModel) tabela_vendas.getModel();
+        tbprodutos.setRowCount(0);
+        Vendas.lista_vendas.clear();
+        Vendas.valor_total = 0;
+        labtotal.setText("");
+    }//GEN-LAST:event_bunova_vendaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +261,7 @@ public class JanelaVendas extends javax.swing.JFrame {
     private javax.swing.JButton buexcluir;
     private javax.swing.JButton bufinalizar;
     private javax.swing.JButton buinserir;
+    private javax.swing.JButton bunova_venda;
     private javax.swing.JTextField in_codigo_do_produto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
