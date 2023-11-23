@@ -4,12 +4,24 @@
  */
 package pdv;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author marco
  */
 public class RegistroDeVendas {
-    public RegistroDeVendas(){
-        
+    
+     public static String pagamento;
+     public static String data;
+     public static String hora;
+     public static String valor_total ;
+
+    public  RegistroDeVendas( String pagamento,String valor_total, String data, String hora){
+        this.pagamento = pagamento;
+        this.valor_total = null;
+        this.data = null;
+        this.hora = null;
     }
+
 }

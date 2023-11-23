@@ -4,6 +4,13 @@
  */
 package pdv;
 
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
+
+
 /**
  *
  * @author marco
@@ -15,6 +22,7 @@ public class FormaDePagamento extends javax.swing.JFrame {
      */
     public FormaDePagamento() {
         initComponents();
+     
     }
 
     /**
@@ -28,36 +36,36 @@ public class FormaDePagamento extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        budinheiro = new javax.swing.JButton();
+        bucartao = new javax.swing.JButton();
+        budebito = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 16)); // NOI18N
         jLabel1.setText("Forma de Pagamento");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jButton1.setText("Dinheiro");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        budinheiro.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        budinheiro.setText("Dinheiro");
+        budinheiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                budinheiroActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jButton2.setText("Cartão de crédito");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bucartao.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        bucartao.setText("Cartão de crédito");
+        bucartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bucartaoActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jButton3.setText("Debito");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        budebito.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        budebito.setText("Debito");
+        budebito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                budebitoActionPerformed(evt);
             }
         });
 
@@ -67,14 +75,14 @@ public class FormaDePagamento extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(budebito, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bucartao, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(budinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -84,9 +92,9 @@ public class FormaDePagamento extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(budinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bucartao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(budebito))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -106,17 +114,34 @@ public class FormaDePagamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void budinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_budinheiroActionPerformed
+       String pagamento = String.valueOf(Vendas.valorAtual());
+       RegistroDeVendas registro = new RegistroDeVendas("Dinheiro", pagamento, Vendas.obterData(),Vendas.obterHora());
+       Banco banco_dados = new Banco();
+       banco_dados.Salvar(registro);
+       JOptionPane.showMessageDialog(null,"Salvo ","ok",JOptionPane.INFORMATION_MESSAGE);//mostra um pop up de erro[
+       dispose();
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_budinheiroActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void budebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_budebitoActionPerformed
+       String pagamento = String.valueOf(Vendas.valorAtual());
+       RegistroDeVendas registro = new RegistroDeVendas("Debito", pagamento, Vendas.obterData(),Vendas.obterHora());
+       Banco banco_dados = new Banco();
+       banco_dados.Salvar(registro);
+       JOptionPane.showMessageDialog(null,"Salvo ","ok",JOptionPane.INFORMATION_MESSAGE);//mostra um pop up de erro
+       dispose();
+    }//GEN-LAST:event_budebitoActionPerformed
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void bucartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bucartaoActionPerformed
+       String pagamento = String.valueOf(Vendas.valorAtual());
+       RegistroDeVendas registro = new RegistroDeVendas("Cartao", pagamento, Vendas.obterData(),Vendas.obterHora());
+       Banco banco_dados = new Banco();
+       banco_dados.Salvar(registro);
+       JOptionPane.showMessageDialog(null,"Salvo ","ok",JOptionPane.INFORMATION_MESSAGE);//mostra um pop up de erro
+       dispose();
+
+    }//GEN-LAST:event_bucartaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,10 +179,11 @@ public class FormaDePagamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton bucartao;
+    private javax.swing.JButton budebito;
+    private javax.swing.JButton budinheiro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+ 
 }

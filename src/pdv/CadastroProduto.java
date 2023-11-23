@@ -32,7 +32,5 @@ public class CadastroProduto {
         }
         return null;
     }
-    /*public static Produto alterar(Produto produto){
-    
-    }*/
+   
 }

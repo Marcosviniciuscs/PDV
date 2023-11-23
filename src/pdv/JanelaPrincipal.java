@@ -1,5 +1,12 @@
 package pdv;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.Timer;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -30,8 +37,16 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         bucadastro_do_produto = new javax.swing.JButton();
         buvendas = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jldata = new javax.swing.JLabel();
+        jlhora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Ponto de vendas");
@@ -50,12 +65,42 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jldata.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jldata.setForeground(new java.awt.Color(51, 51, 255));
+        jldata.setText("jLabel2");
+        jldata.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jlhora.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jlhora.setForeground(new java.awt.Color(51, 51, 255));
+        jlhora.setText("jLabel3");
+        jlhora.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jldata, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlhora, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jldata)
+                    .addComponent(jlhora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(112, Short.MAX_VALUE)
+                .addContainerGap(135, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -65,6 +110,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(103, 103, 103))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,7 +121,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addComponent(bucadastro_do_produto)
                 .addGap(18, 18, 18)
                 .addComponent(buvendas)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -88,6 +135,16 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void buvendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buvendasActionPerformed
         new JanelaVendas().setVisible(true);
     }//GEN-LAST:event_buvendasActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         Date datasistema = new Date();
+         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");//pego uma data e converto para string
+         jldata.setText(formato.format(datasistema));
+         
+         Timer timer = new Timer(1000, new hora());
+         timer.start();
+         
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -128,5 +185,18 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton bucadastro_do_produto;
     private javax.swing.JButton buvendas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jldata;
+    private javax.swing.JLabel jlhora;
     // End of variables declaration//GEN-END:variables
+
+    class hora implements ActionListener{ // importante
+        @Override
+        public void actionPerformed(ActionEvent e){
+            Calendar now = Calendar.getInstance();
+            jlhora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+        }
+    }
+    
+    
 }

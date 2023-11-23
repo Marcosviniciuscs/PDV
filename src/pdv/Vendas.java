@@ -7,6 +7,10 @@ package pdv;
  *
  * @author marco
  */
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public  class Vendas {
@@ -36,7 +40,23 @@ public  class Vendas {
     public static double  valorAtual(){
         return Vendas.valor_total;
     }
-    
+    public static ArrayList<Produto> obterLista_produtos_vendidos(){
+        return Vendas.lista_vendas;
+    }
+    public static String  obterHora(){
+        LocalTime horaAtual = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        String hora = horaAtual.format(formatter);
+        return hora;
+    }
+    public static String obterData(){
+         LocalDate dataAtual = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String data = dataAtual.format(formatter);
+        return data;
+        
+    }
+            
     public static void mostrar_lista(){
         
         System.out.print("Produto    quantidade      preço");
@@ -45,5 +65,6 @@ public  class Vendas {
         }
     }
     
+
 }
 
