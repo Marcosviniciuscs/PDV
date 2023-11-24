@@ -8,7 +8,7 @@ package pdv;
  *
  * @author marco
  */
-public class PDV {
+public class Main {
 
     public static void main(String[] args) {
         JanelaPrincipal janela =  new JanelaPrincipal();
